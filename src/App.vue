@@ -18,11 +18,16 @@ import SideScreen from './components/SideScreen.vue'
   height: 100vh; /* Ensure the app takes up full viewport height */
 }
 
-.main-content {
-  flex: 1; /* Takes up the remaining space */
-  margin-left: 30%; /* Offset by the width of SideScreen */
+.side-content{
   padding: 2rem;
 }
+
+.main-content {
+  flex: 1; /* Takes up the remaining space */
+  margin-left: 21%; /* Offset by the width of SideScreen */
+  padding: 2rem;
+}
+
 
 /* Adjustments for smaller screens */
 @media (max-width: 1024px) {
