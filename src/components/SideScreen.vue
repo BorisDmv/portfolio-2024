@@ -12,21 +12,15 @@
       <div class="contact-info">
         <div class="contact-item">
           <div class="icon-box">
-            <i class="icon-email"></i>
+            <img class="icon" src="../assets/email.png" />
           </div>
-          <span>borisdimitrov1998@gmail.com</span>
+          <a href="mailto:borisdimitrov1998@gmail.com">Send Mail</a>
         </div>
         <div class="contact-item">
           <div class="icon-box">
-            <i class="icon-phone"></i>
+            <img class="icon" src="../assets/github.png" />
           </div>
-          <span>+359 876079546</span>
-        </div>
-        <div class="contact-item">
-          <div class="icon-box">
-            <i class="icon-birthday"></i>
-          </div>
-          <span>Jan 31, 1998</span>
+          <a href="https://github.com/BorisDmv" target="_blank">My GitHub</a>
         </div>
       </div>
     </div>
@@ -99,7 +93,9 @@ hr {
 .contact-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
+  width: 50%;
+  margin: auto;
 }
 
 .contact-item {
@@ -109,35 +105,39 @@ hr {
 }
 
 .icon-box {
-  width: 30px;
-  height: 30px;
-  border: 2px solid #000;
-  border-top: none;
-  border-right: none;
-  opacity: 0.6;
+  width: 50%;
+  height: 40px;
+  background: #3a3a3a;
+  border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 10px;
 }
 
-.icon-email:before {
-  content: "\2709"; /* Unicode character for an envelope icon */
-}
-
-.icon-phone:before {
-  content: "\260E"; /* Unicode character for a phone icon */
-}
-
-.icon-birthday:before {
-  content: "\1F382"; /* Unicode character for a birthday cake icon */
+.icon {
+  height: 25px;
 }
 
 @media (max-width: 1024px) {
+  .row{
+    padding: 2rem;
+  }
+
   .container {
     width: auto;
     height: auto;
     position: relative;
   }
+
+  .contact-info {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .contact-item {
+    width: 100%;
+  }
+
 }
 </style>
