@@ -150,6 +150,11 @@ hr {
 }
 
 @media (max-width: 860px) {
+  .container{
+    margin: 0 0 2rem 0;
+    min-width: auto;
+  }
+
   .contact-info {
     flex-direction: column;
   }

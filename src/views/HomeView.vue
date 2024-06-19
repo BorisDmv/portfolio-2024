@@ -145,12 +145,31 @@ p{
 }
 
 .line{
-  width: 5%;
+  width: 50px;
   height: 5px;
   border-radius: 10px;
   background: #fefefe;
   margin: 5px 0 20px 0;
 }
+
+@media (max-width: 860px) {
+  .navbar{
+    width: 100%;
+    height: 50px;
+    padding: 0;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .navbar ul{
+    height: 100%;
+    justify-content: end;
+    align-items: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar ul{
+    gap: 0;
+  }
+}
 </style>
-<script setup>
-</script>
