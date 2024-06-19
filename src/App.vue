@@ -15,7 +15,6 @@ import SideScreen from './components/SideScreen.vue'
 <style scoped>
 #app {
   display: flex;
-  height: 100vh; /* Ensure the app takes up full viewport height */
 }
 
 .side-content{
@@ -24,7 +23,6 @@ import SideScreen from './components/SideScreen.vue'
 
 .main-content {
   flex: 1; /* Takes up the remaining space */
-  margin-left: 21%; /* Offset by the width of SideScreen */
   padding: 2rem;
 }
 

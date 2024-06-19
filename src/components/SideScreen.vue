@@ -54,9 +54,11 @@ h2 {
 
 .container {
   background: #1f1f1f;
-  margin: 2rem;
+  margin: 2rem 0 2rem 2rem;
+  height: 1000px;
+  min-width: 320px;
   width: 20%;
-  position: fixed; /* Fixed position */
+  position: sticky; /* Fixed position */
   top: 0;
   bottom: 0;
   left: 0;
@@ -99,13 +101,14 @@ hr {
 }
 
 .contact-item {
+  width: 100%;
   display: flex;
   align-items: center;
   margin: 10px 0;
 }
 
 .icon-box {
-  width: 50%;
+  width: 26%;
   height: 40px;
   background: #3a3a3a;
   border-radius: 15px;
@@ -124,9 +127,14 @@ hr {
     padding: 2rem;
   }
 
+  .icon-box {
+    width: 50%;
+  }
+
   .container {
     width: auto;
     height: auto;
+    margin: 2rem 2rem 0 2rem;
     position: relative;
   }
 
@@ -139,5 +147,15 @@ hr {
     width: 100%;
   }
 
+}
+
+@media (max-width: 860px) {
+  .contact-info {
+    flex-direction: column;
+  }
+
+  .contact-item{
+    justify-content: center;
+  }
 }
 </style>
