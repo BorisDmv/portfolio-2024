@@ -55,7 +55,7 @@ h2 {
 .container {
   background: #1f1f1f;
   margin: 2rem 0 2rem 2rem;
-  height: 1000px;
+  height: 100vh;
   min-width: 320px;
   width: 20%;
   position: sticky; /* Fixed position */
@@ -70,6 +70,7 @@ h2 {
 
 .row {
   text-align: center;
+  height: 90%;
 }
 
 .name-content{
