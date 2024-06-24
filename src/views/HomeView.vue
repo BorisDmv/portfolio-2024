@@ -1,13 +1,6 @@
 <template>
   <main class="container">
-    <nav class="navbar">
-      <ul>
-        <li :class="{ active: isActive('/') }"><router-link to="/">About</router-link></li>
-        <li :class="{ active: isActive('/blog') }"><router-link to="/blog">Blog</router-link></li>
-        <li :class="{ active: isActive('/contact') }"><router-link to="/contact">Contact</router-link></li>
-        <li :class="{ active: isActive('/portfolio') }"><router-link to="/portfolio">Portfolio</router-link></li>
-      </ul>
-    </nav>
+    <NavBar />
     <div class="content">
       <h1 class="title">About Me</h1>
       <div class="line"></div>
@@ -17,73 +10,38 @@
       <p style="margin-top: 10px">
         Beyond the screen, I cherish the simple joys of life, like taking walks outside and immersing myself in nature's beauty. Originally from Sofia, Bulgaria, I've always been inspired by the blend of rich culture and scenic landscapes of my hometown.
       </p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
-      <p>test</p>
+
+      <div class="whatIDo">
+        <div class="card" v-for="(item, index) in whatIDo" :key="index">
+          <h2>{{item.title}}</h2>
+          <p>
+            {{item.description}}
+          </p>
+        </div>
+      </div>
 
     </div>
   </main>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
-import { computed } from 'vue';
+import NavBar from "@/components/NavBar.vue";
 
-// Use the useRoute hook to access the current route
-const route = useRoute();
+const whatIDo = [
+  {
+    title: "Web Development",
+    description: "I specialize in creating responsive and user-friendly web applications that cater to the needs of modern businesses. My goal is to provide clients with a seamless digital experience that enhances their online presence and drives growth."
+  },
+  {
+    title: "Mobile Development",
+    description: "I have a particular fondness for the Flutter framework when it comes to mobile development. I create seamless and efficient applications that provide users with a smooth and engaging experience."
+  },
+  {
+    title: "UI/UX Design",
+    description: "I have a keen eye for design and strive to create visually appealing interfaces that are intuitive and easy to use. I believe that good design is essential for creating a positive user experience."
+  }
+]
 
-// Define the isActive function
-const isActive = (targetRoute) => {
-  return computed(() => route.path === targetRoute).value;
-};
 </script>
 
 <style scoped>
@@ -98,47 +56,26 @@ p{
   font-size: 1rem;
 }
 
-.navbar {
-  background: #292929;
-  float: right;
-  border-radius: 0 15px 0 15px;
-  padding: 15px;
-}
-
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-}
-
-.navbar ul li {
-  display: inline;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #cecece;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.navbar ul li a:hover {
-  background-color: #3a3a3a;
-  color: #fff;
-}
-
-.active {
-  background-color: #3a3a3a;
-  color: #fff;
-}
-
 .content{
   padding: 40px;
 }
+
+.whatIDo {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  gap: 20px; /* Adjust gap between cards */
+}
+
+.card {
+  flex: calc(50% - 10px); /* Two cards per row, minus gap */
+  padding: 20px;
+  margin-top: 20px;
+  background: linear-gradient(#212121, #282828) padding-box, linear-gradient(to right, #373737, #232323) border-box;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, border-width 0.3s;
+}
+
 
 .title{
   color: white;
@@ -152,24 +89,10 @@ p{
   margin: 5px 0 20px 0;
 }
 
-@media (max-width: 860px) {
-  .navbar{
-    width: 100%;
-    height: 50px;
-    padding: 0;
-    border-radius: 15px 15px 0 0;
-  }
-
-  .navbar ul{
-    height: 100%;
-    justify-content: end;
-    align-items: center;
+@media (max-width: 1444px) {
+  .whatIDo {
+    flex-direction: column;
   }
 }
 
-@media (max-width: 420px) {
-  .navbar ul{
-    gap: 0;
-  }
-}
 </style>
