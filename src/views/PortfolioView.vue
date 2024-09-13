@@ -8,23 +8,23 @@
       <div class="whatIDo">
         <article class="card card--2" v-for="(item, index) in whatIDo" :key="index">
           <div class="card__info-hover">
-            <svg class="card__like"  viewBox="0 0 24 24">
-              <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />
-            </svg>
+<!--            <svg class="card__like"  viewBox="0 0 24 24">-->
+<!--              <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />-->
+<!--            </svg>-->
             <div class="card__clock-info">
-              <svg class="card__clock"  viewBox="0 0 24 24"><path d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />
-              </svg><span class="card__time">5 min</span>
+<!--              <svg class="card__clock"  viewBox="0 0 24 24"><path d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />-->
+<!--              </svg><span class="card__time">5 min</span>-->
             </div>
 
           </div>
           <div class="card__img"></div>
-          <a href="#" class="card_link">
-            <div class="card__img--hover"></div>
-          </a>
+          <div class="card_link">
+            <div class="card__img--hover" :style="{ backgroundImage: `url(${item.image})` }"></div>
+          </div>
           <div class="card__info">
-            <span class="card__category"> Travel</span>
-            <h3 class="card__title">Discover the sea</h3>
-            <span class="card__by">by <a href="#" class="card__author" title="author">John Doe</a></span>
+            <span class="card__category"></span>
+            <h3 class="card__title">{{ item.title }}</h3>
+            <span class="card__by">{{ item.description }}</span>
           </div>
         </article>
 
@@ -36,20 +36,14 @@
 
 <script setup>
 import NavBar from "@/components/NavBar.vue";
+import scanlabImage from '@/assets/scanlab-preview.webp';
 
 const whatIDo = [
   {
-    title: "Web Development",
-    description: "I specialize in creating responsive and user-friendly web applications that cater to the needs of modern businesses. My goal is to provide clients with a seamless digital experience that enhances their online presence and drives growth."
+    title: "Scanlab",
+    description: "Scanlab is SaaS project I worked as frontend developer using Vue 2 and then migrated it to Vue 3. I created the UI and made all illustrations so that everything is custom.The project also is having a mobile application written in Flutter/Dart.",
+    image: scanlabImage
   },
-  {
-    title: "Mobile Development",
-    description: "I have a particular fondness for the Flutter framework when it comes to mobile development. I create seamless and efficient applications that provide users with a smooth and engaging experience."
-  },
-  {
-    title: "UI/UX Design",
-    description: "I have a keen eye for design and strive to create visually appealing interfaces that are intuitive and easy to use. I believe that good design is essential for creating a positive user experience."
-  }
 ]
 
 </script>
@@ -81,13 +75,10 @@ p{
 .whatIDo {
   display: flex;
   flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  gap: 20px;
 }
 
 
-.card--2 .card__img,
-.card--2 .card__img--hover {
-  background-image: url("https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-}
 
 .card__like {
   width: 18px;
@@ -143,7 +134,7 @@ p{
 .card {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
   background-color: #181818;
-  width: 50%;
+  width: 48%;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
@@ -176,19 +167,18 @@ p{
 .card__title {
   margin-top: 5px;
   margin-bottom: 10px;
-  font-family: "Roboto Slab", serif;
+  font-family: "Roboto", serif;
 }
 
 .card__by {
-  font-size: 12px;
-  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
+  color: #fff;
 }
 
 .card__author {
-  font-weight: 600;
   text-decoration: none;
-  color: #ad7d52;
 }
 
 .card:hover .card__img--hover {
@@ -209,6 +199,7 @@ p{
 @media (max-width: 1444px) {
   .whatIDo {
     flex-direction: column;
+    gap: 0;
   }
 
   .card {
