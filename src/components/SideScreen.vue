@@ -56,8 +56,7 @@ h2 {
   background: #1f1f1f;
   margin: 2rem 0 2rem 2rem;
   height: 100vh;
-  min-width: 320px;
-  width: 20%;
+  min-width: 380px;
   position: sticky; /* Fixed position */
   top: 0;
   bottom: 0;
@@ -152,7 +151,7 @@ hr {
 
 @media (max-width: 860px) {
   .container{
-    margin: 0 0 2rem 0;
+    margin: 2rem 2rem 0 2rem;
     min-width: auto;
   }
 

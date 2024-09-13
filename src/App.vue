@@ -31,7 +31,6 @@ import SideScreen from './components/SideScreen.vue'
 @media (max-width: 1024px) {
   #app {
     flex-direction: column;
-    padding: 2rem;
   }
 
   .main-content {
@@ -42,7 +41,7 @@ import SideScreen from './components/SideScreen.vue'
 
 @media (max-width: 860px) {
   .main-content {
-    padding: 0;
+    padding: 2rem;
   }
 }
 
