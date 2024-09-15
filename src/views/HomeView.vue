@@ -2,7 +2,7 @@
   <main class="container">
     <NavBar />
     <div class="content">
-      <h1 class="title">About Me</h1>
+      <h1 class="text-4xl font-extrabold dark:text-white">About Me</h1>
       <div class="line"></div>
       <p>
         I'm a full-time software developer who loves coding and thrives in the dynamic world of technology. My primary tools are JavaScript, and for the frontend, I have a particular fondness for the Vue.js framework. When it comes to mobile development, Flutter is my go-to framework for creating seamless and efficient applications.
@@ -57,7 +57,7 @@ p{
 }
 
 .content{
-  padding: 40px;
+  padding: 90px 20px 20px 20px;
 }
 
 .whatIDo {
@@ -76,10 +76,6 @@ p{
   transition: border-color 0.3s, border-width 0.3s;
 }
 
-
-.title{
-  color: white;
-}
 
 .line{
   width: 50px;

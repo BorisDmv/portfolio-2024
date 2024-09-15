@@ -2,7 +2,7 @@
   <main class="container">
     <NavBar />
     <div class="content">
-      <h1 class="title">Portfolio</h1>
+      <h1 class="text-4xl font-extrabold dark:text-white">Portfolio</h1>
       <div class="line"></div>
 
       <div class="whatIDo">
@@ -61,7 +61,7 @@ p{
 }
 
 .content{
-  padding: 40px;
+  padding: 90px 20px 20px 20px;
 }
 
 .line{
@@ -196,7 +196,7 @@ p{
 }
 
 
-@media (max-width: 1444px) {
+@media (max-width: 1244px) {
   .whatIDo {
     flex-direction: column;
     gap: 0;

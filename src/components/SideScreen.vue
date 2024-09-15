@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="row">
+  <div class="cont">
+    <div class="item-row">
       <img class="user-profile" src="../assets/40300461.png" />
       <div class="name-content">
         <h2>Boris Dimitrov</h2>
@@ -46,13 +46,14 @@ h2 {
 }
 
 .user-profile{
+  margin: auto;
   width: 100px;
   height: 100px;
   border-radius: 50%;
   margin-bottom: 20px;
 }
 
-.container {
+.cont {
   background: #1f1f1f;
   margin: 2rem 0 2rem 2rem;
   height: 100vh;
@@ -67,7 +68,7 @@ h2 {
   flex-direction: column;
 }
 
-.row {
+.item-row {
   text-align: center;
   height: 90%;
 }
@@ -123,7 +124,7 @@ hr {
 }
 
 @media (max-width: 1024px) {
-  .row{
+  .item-row{
     padding: 2rem;
   }
 
@@ -131,7 +132,7 @@ hr {
     width: 50%;
   }
 
-  .container {
+  .cont {
     width: auto;
     height: auto;
     margin: 2rem 2rem 0 2rem;
@@ -150,7 +151,7 @@ hr {
 }
 
 @media (max-width: 860px) {
-  .container{
+  .cont{
     margin: 2rem 2rem 0 2rem;
     min-width: auto;
   }
