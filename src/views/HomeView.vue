@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main class="cont">
     <NavBar />
     <div class="content">
       <h1 class="text-4xl font-extrabold dark:text-white">About Me</h1>
@@ -45,7 +45,7 @@ const whatIDo = [
 </script>
 
 <style scoped>
-.container {
+.cont {
   width: 100%; /* Ensure the container takes the full remaining width */
   border-radius: 15px;
   background: #1f1f1f; /* Adjust background color as needed */
