@@ -31,17 +31,27 @@ import SideScreen from './components/SideScreen.vue'
 @media (max-width: 1024px) {
   #app {
     flex-direction: column;
+    min-height: 100vh;
+    padding-top: 300px; /* Even more space for fixed side screen */
   }
 
   .main-content {
-    width: 100%;
-    margin-left: 0; /* Reset margin for smaller screens */
+    min-height: auto;
+    padding: 1rem;
   }
 }
 
 @media (max-width: 860px) {
+
   .main-content {
     padding: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+
+  #app {
+    padding-top: 0;
   }
 }
 

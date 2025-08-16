@@ -1,35 +1,39 @@
 <template>
   <main class="cont">
-    <NavBar />
+    <div class="navbar-wrapper">
+      <NavBar />
+    </div>
     <div class="content">
       <h1 class="text-4xl font-extrabold dark:text-white">Portfolio</h1>
       <div class="line"></div>
-
       <div class="whatIDo">
-        <article class="card card--2" v-for="(item, index) in whatIDo" :key="index">
-          <div class="card__info-hover">
-<!--            <svg class="card__like"  viewBox="0 0 24 24">-->
-<!--              <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z" />-->
-<!--            </svg>-->
-            <div class="card__clock-info">
-<!--              <svg class="card__clock"  viewBox="0 0 24 24"><path d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />-->
-<!--              </svg><span class="card__time">5 min</span>-->
+        <a
+          v-for="(item, index) in whatIDo"
+          :key="index"
+          :href="item.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="text-decoration: none; color: inherit;"
+        >
+          <article class="card card--2">
+            <div class="card__info-hover">
+              <div class="card__clock-info"></div>
             </div>
-
-          </div>
-          <div class="card__img"></div>
-          <div class="card_link">
-            <div class="card__img--hover" :style="{ backgroundImage: `url(${item.image})` }"></div>
-          </div>
-          <div class="card__info">
-            <span class="card__category"></span>
-            <h3 class="card__title">{{ item.title }}</h3>
-            <span class="card__by">{{ item.description }}</span>
-          </div>
-        </article>
-
+            <div class="card__img"></div>
+            <div class="card_link">
+              <div class="card__img--hover" :style="{ backgroundImage: `url(${item.image})` }"></div>
+            </div>
+            <div class="card__info">
+              <span class="card__category"></span>
+              <h3 class="card__title">{{ item.title }}</h3>
+              <span class="card__by">{{ item.description }}</span>
+              <div class="card__tech">
+                <span v-for="tech in item.tech" :key="tech" class="card__tech-item">{{ tech }}</span>
+              </div>
+            </div>
+          </article>
+        </a>
       </div>
-
     </div>
   </main>
 </template>
@@ -37,45 +41,75 @@
 <script setup>
 import NavBar from "@/components/NavBar.vue";
 import scanlabImage from '@/assets/scanlab-preview.webp';
+import umlCreatorImage from '@/assets/uml-creator.png';
+import auraMindImage from '@/assets/aura-mind.png';
 
 const whatIDo = [
   {
     title: "Scanlab",
-    description: "Scanlab is SaaS project I worked as frontend developer using Vue 2 and then migrated it to Vue 3. I created the UI and made all illustrations so that everything is custom.The project also is having a mobile application written in Flutter/Dart.",
-    image: scanlabImage
+    description: "Scanlab is SaaS project which scans and provides you if some of your sites are down. It also provides you with a dashboard where you can see the status of your sites, uptime, and response time. You can also set up alerts to notify you when a site goes down.",
+    image: scanlabImage,
+    link: "https://www.scanlab.site/",
+    tech: ["Vue 2/3", "Flutter", "Custom Illustrations"]
+  },
+  {
+    title: "UML Creator",
+    description: "The most intuitive and powerful tool for visualizing your software architecture.Create diagrams for free—no credit card needed. Enjoy an intuitive, user-friendly interface with no learning curve.Go from idea to diagram in minutes.",
+    image: umlCreatorImage,
+    link: "https://uml-creator.vercel.app/",
+    tech: ["React", "Tailwind CSS", "Go", "PostgresSQL"]
+  },
+  {
+    title: "Aura Mind",
+    description: "Aura Mind is your companion for relaxation, focus, and stress relief.Guided breathing exercises, mood tracking, and a points system help you stay motivated and balanced.Unwind and reduce stress with meditation sessions and track your emotional progress over time.",
+    image: auraMindImage,
+    tech: ["Flutter", "Firebase"]
   },
 ]
-
 </script>
 
 <style scoped>
 .cont {
-  width: 100%; /* Ensure the container takes the full remaining width */
+  width: 100%;
+  min-height: 100vh;
   border-radius: 15px;
-  background: #1f1f1f; /* Adjust background color as needed */
-  box-sizing: border-box; /* Ensure padding is included in the width */
+  background: #1f1f1f;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-p{
-  font-size: 1rem;
+.navbar-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 0;
 }
 
-.content{
-  padding: 90px 20px 20px 20px;
+.content {
+  padding: 80px 24px 32px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.line{
+.line {
   width: 50px;
   height: 5px;
   border-radius: 10px;
-  background: #fefefe;
+  background: var(--accent-main);
   margin: 5px 0 20px 0;
 }
 
 .whatIDo {
-  display: flex;
-  flex-wrap: wrap; /* Allow cards to wrap to the next line */
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+  align-items: stretch;
 }
 
 .card__like {
@@ -132,13 +166,20 @@ p{
 .card {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
   background-color: #181818;
-  width: 48%;
+  width: 100%;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
   margin-bottom: 35px;
   margin-right: auto;
+  min-height: 420px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
 }
 .card:hover {
   box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
@@ -193,17 +234,58 @@ p{
   opacity: 1;
 }
 
+.card__tech {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card__tech-item {
+  background-color: #2c2c2c;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
 
 @media (max-width: 1244px) {
   .whatIDo {
     flex-direction: column;
-    gap: 0;
+    gap: 16px;
   }
-
   .card {
     width: 100%;
     margin-bottom: 30px;
   }
 }
 
+@media (max-width: 600px) {
+  .content {
+    padding: 80px 4px 8px 4px;
+  }
+  .card {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+  .card h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .whatIDo {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .card {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 4px;
+    margin-bottom: 16px;
+  }
+}
 </style>
